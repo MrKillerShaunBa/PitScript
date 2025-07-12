@@ -11,6 +11,13 @@ Some rules that must be followed while coding in this language-
 - Keep spaces between reserved words, variables and operators.
 - List need to be defined between lines containing grid start and grid end.
 
+## Installation
+
+```
+git clone https://github.com/MrKillerShaunBa/PitScript.git
+python pitscript.py <path_to_your_file>.f1
+```
+
 The usage is as follows- 
  Syntax | Description | Usage
 |:---:|:-----------:|:--------------------:|
@@ -26,6 +33,13 @@ The usage is as follows-
 | `Green Flag` | Used to end the try-except block and comes after `Yellow Flag` | `Green Flag` |
 
 ## Example programs
+
+### Hello World
+```javascript
+ITS LIGHTS OUT AND AWAY WE GO
+RADIO Hello World
+RETIRE THE CAR
+```
 
 ### Arithmetic
 ```js
