@@ -35,7 +35,7 @@ The usage is as follows-
 ## Example programs
 
 ### Hello World
-```javascript
+```js
 ITS LIGHTS OUT AND AWAY WE GO
 RADIO Hello World
 RETIRE THE CAR
@@ -57,7 +57,16 @@ RETIRE THE CAR
 ```
 
 ### List
-```python
+```js
+ITS LIGHTS OUT AND AWAY WE GO
+strat lewis 44
+grid start
+p1 100
+grid end
+radio p1
+strat boost p1 * lewis
+radio boost
+retire the car
 ```
 
 ### User-Defined Function
