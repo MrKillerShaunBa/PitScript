@@ -19,8 +19,11 @@ The usage is as follows-
 | `Grid End` | End the grid definition | `Grid End` |
 | `Strat` | Define and assing value to a variable | `Strat <var_name> <value>` |
 | `Pit` | Used to create user-defined functions | `Pit <func_name> [args]` |
-| `Green` | Used to indicate end of function definition | `Green` |
+| `Crash` | Used to indicate end of function definition | `Crash` |
 | `Box Box` | Call the user-defined functions | `Box Box <func_name> [passed_ards]` |
+| `DRS` | Used to enter the try part of error handling | `DRS`|
+| `Yellow flag` | Used to define the except part of error handling just after `DRS` |  `Yellow Flag` |
+| `Green Flag` | Used to end the try-except block and comes after `Yellow Flag` | `Green Flag` |
 
 ## Example programs
 
@@ -49,8 +52,22 @@ ITS LIGHTS OUT AND AWAY WE GO
 STRAT speed 100
 PIT add2 var1
 STRAT var1 var1 + 2
-GREEN
+CRASH
 BOX BOX add2 speed
 RADIO speed
+RETIRE THE CAR
+```
+
+### Error handling
+```js
+ITS LIGHTS OUT AND AWAY WE GO
+DRS
+STRAT max 100
+STRAT boost speed / 0
+RADIO speed
+RADIO boost
+YELLOW FLAG
+RADIO something is wrong I can feel it
+GREEN FLAG
 RETIRE THE CAR
 ```
