@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PitScript Playground</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header" >
+            <h1>🏎️ PitScript Playground 🏎️</h1>
+            <p>Your Formula 1 themed programming language interpreter</p>
+        </div>
+
+        <div class="content">
+            <form method="POST">
+                <div class="editor-section">
+                    <div class="editor-label">
+                        <span>📝 Code Editor</span>
+                        <span class="racing-emoji">🏎️</span>
+                    </div>
+                    <textarea name="code" class="code-textarea" placeholder="Enter your PitScript code here...">{{code or """Its lights out and away we go
+Radio Hello World!!
+Retire the car"""}}</textarea>
+                </div>
+
+                <button type="submit" class="run-button">
+                    <span>🏁</span>
+                    <span>Start Race</span>
+                </button>
+            </form>
+
+            <div class="output-section">
+                <div class="output-label">
+                    <span>📺 Output</span>
+                    <span>📊</span>
+                </div>
+                <div class="output-display">{{output or "Ready to start your PitScript race! Click 'Start Race' to begin..."}}</div>
+            </div>
+
+                <div class="documentation">
+                    <h2>📚 Documentation</h2>
+
+                    <div class="doc-section">
+                        <h3>🎯 Language Features</h3>
+                        <ul>
+                            <li>Variables and arithmetic operations</li>
+                            <li>User-defined functions with parameters</li>
+                            <li>Error handling with DRS zones</li>
+                            <li>Grid system (list) with 20 positions (p1-p20)</li>
+                            <li>Integer-only data type for maximum speed 🏎️</li>
+                            <li>Case insensitive commands</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h3>📋 Important Rules</h3>
+                        <ol>
+                            <li>Always start with: <code>Its lights out and away we go</code></li>
+                            <li>Always end with: <code>retire the car</code></li>
+                            <li>Each command goes on a separate line</li>
+                            <li>Keep spaces between reserved words, variables and operators</li>
+                            <li>Grid definitions must be between <code>grid start</code> and <code>grid end</code></li>
+                        </ol>
+                    </div>
+
+                    <div class="doc-section">
+                        <h3>🔧 Command Reference</h3>
+                        <div class="command-table">
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Radio</code></div>
+                                <div class="command-desc">Print command - outputs variable value or text</div>
+                                <div class="command-usage"><code>radio &lt;variable or text&gt;</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Strat</code></div>
+                                <div class="command-desc">Define and assign value to a variable</div>
+                                <div class="command-usage"><code>strat &lt;var_name&gt; &lt;value&gt;</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Grid Start/End</code></div>
+                                <div class="command-desc">Define grid positions (p1-p20)</div>
+                                <div class="command-usage"><code>grid start</code><br><br>
+                                <code>p1 100</code><br><br>
+                                <code>grid end</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Pit</code></div>
+                                <div class="command-desc">Create user-defined functions</div>
+                                <div class="command-usage"><code>pit &lt;func_name&gt; [args]</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Crash</code></div>
+                                <div class="command-desc">End function definition</div>
+                                <div class="command-usage"><code>crash</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Box Box</code></div>
+                                <div class="command-desc">Call user-defined functions</div>
+                                <div class="command-usage"><code>box box &lt;func_name&gt; [args]</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>DRS</code></div>
+                                <div class="command-desc">Start try block for error handling</div>
+                                <div class="command-usage"><code>drs</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Yellow Flag</code></div>
+                                <div class="command-desc">Start except block</div>
+                                <div class="command-usage"><code>yellow flag</code></div>
+                            </div>
+                            <div class="command-row">
+                                <div class="command-syntax"><code>Green Flag</code></div>
+                                <div class="command-desc">End try-except block</div>
+                                <div class="command-usage"><code>green flag</code></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h3>💡 Example Programs</h3>
+
+                        <div class="example-container">
+                            <h4>🌟 Hello World</h4>
+                            <div class="example-code">
+<pre>ITS LIGHTS OUT AND AWAY WE GO
+RADIO Hello World
+RETIRE THE CAR</pre>
+                            </div>
+                        </div>
+
+                        <div class="example-container">
+                            <h4>🧮 Arithmetic Operations</h4>
+                            <div class="example-code">
+<pre>ITS LIGHTS OUT AND AWAY WE GO
+STRAT speed 100
+STRAT boost speed * 2
+STRAT weight 500
+STRAT reduce weight / 5
+RADIO speed
+RADIO boost
+RADIO weight
+RADIO reduce
+RETIRE THE CAR</pre>
+                            </div>
+                        </div>
+
+                        <div class="example-container">
+                            <h4>📊 Grid (List) Usage</h4>
+                            <div class="example-code">
+<pre>ITS LIGHTS OUT AND AWAY WE GO
+strat lewis 44
+grid start
+p1 100
+grid end
+radio p1
+strat boost p1 * lewis
+radio boost
+retire the car</pre>
+                            </div>
+                        </div>
+
+                        <div class="example-container">
+                            <h4>🔧 User-Defined Functions</h4>
+                            <div class="example-code">
+<pre>ITS LIGHTS OUT AND AWAY WE GO
+STRAT speed 100
+PIT add2 var1
+STRAT var1 var1 + 2
+CRASH
+BOX BOX add2 speed
+RADIO speed
+RETIRE THE CAR</pre>
+                            </div>
+                        </div>
+
+                        <div class="example-container">
+                            <h4>⚠️ Error Handling</h4>
+                            <div class="example-code">
+<pre>ITS LIGHTS OUT AND AWAY WE GO
+DRS
+STRAT max 100
+STRAT boost speed / 0
+RADIO speed
+RADIO boost
+YELLOW FLAG
+RADIO something is wrong I can feel it
+GREEN FLAG
+RETIRE THE CAR</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
